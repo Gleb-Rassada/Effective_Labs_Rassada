@@ -231,6 +231,7 @@ fun DotaLogo() { //val myColor: Color = Color(0xFF050B18)
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.background(Color.Black).height(80.dp).width(80.dp)
                     .padding(15.dp)
+
             )
         }
 
