@@ -211,6 +211,8 @@ fun DotaInfo() {
 }
 
 
+
+
 @Composable
 fun DotaLogo() { //val myColor: Color = Color(0xFF050B18)
     Row() {// иконка
