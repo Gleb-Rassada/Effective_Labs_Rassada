@@ -20,6 +20,10 @@
         "source": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-merged_res-44:\\drawable_stars0.png.flat",
+        "source": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-main-46:\\drawable\\stars0.png"
+    },
+    {
         "merged": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-merged_res-44:\\drawable_star2.png.flat",
         "source": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-main-46:\\drawable\\star2.png"
     },
@@ -64,8 +68,8 @@
         "source": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-main-46:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.myapplication.app-merged_res-44:/drawable_stars0.png.flat",
-        "source": "com.example.myapplication.app-main-46:/drawable/stars0.png"
+        "merged": "com.example.myapplication.app-merged_res-44:/drawable_face1.png.flat",
+        "source": "com.example.myapplication.app-main-46:/drawable/face1.png"
     },
     {
         "merged": "C:\\Users\\grass\\.gradle\\daemon\\8.0\\com.example.myapplication.app-merged_res-44:\\mipmap-hdpi_ic_launcher_round.webp.flat",

@@ -52,6 +52,7 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 drawable dota_icon
+drawable face1
 drawable gameplay1
 drawable gameplay2
 drawable gameplay3
