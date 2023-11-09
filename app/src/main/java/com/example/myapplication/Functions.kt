@@ -17,23 +17,26 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 
 
 @Composable
 fun ScreenShots() {
-    // контейнер lazyrow
     LazyRow() {
         item {
             Image(
@@ -59,7 +62,7 @@ fun ScreenShots() {
                     .width(260.dp)
                     .padding(start = 24.dp, end = 24.dp)
                     .clip(RoundedCornerShape(10.dp)),
-                )
+            )
         }
 
         item {
@@ -73,14 +76,13 @@ fun ScreenShots() {
                     .width(260.dp)
                     .padding(start = 24.dp, end = 24.dp)
                     .clip(RoundedCornerShape(10.dp)),
-                )
+            )
         }
     }
 }
 
 @Composable
 fun DotaHeader() {
-    // контейнер image
     Image(
         painter = painterResource(id = R.drawable.jagger), // указываем ссылку на фотку
         contentDescription = "null",
@@ -89,12 +91,12 @@ fun DotaHeader() {
             .fillMaxWidth(),
         contentScale = ContentScale.Crop
     )
-
 }
 
 @Composable
 fun DotaInfo() {
-    val myColor1: Color = Color(0xFF14314c /*сначала 0xFF потом HEX без'#' полученный из RGB на сайте*/)
+    val myColor1: Color =
+        Color(0xFF14314c /*сначала 0xFF потом HEX без'#' полученный из RGB на сайте*/)
     val myColor2: Color = Color(0xFF44a9f4)
 
     Row(
@@ -102,7 +104,6 @@ fun DotaInfo() {
             start = 24.dp
         ), // с помощью модифаера настраиваем параметры контейнера
         horizontalArrangement = Arrangement.Start
-        //contentAlignment = Alignment.TopStart
 
     ) {
         BlueOval("   MOBA   ", myColor1, myColor2)
@@ -126,7 +127,7 @@ fun DotaInfo() {
 }
 
 @Composable
-fun BlueOval(genre: String, colorBack: Color, colorText: Color){
+fun BlueOval(genre: String, colorBack: Color, colorText: Color) {
     Box(
         Modifier
             .height(20.dp)
@@ -143,7 +144,7 @@ fun BlueOval(genre: String, colorBack: Color, colorText: Color){
 }
 
 @Composable
-fun DotaLogo() { //val myColor: Color = Color(0xFF050B18)
+fun DotaLogo() {
     Row() {// иконка
         Box(
             modifier = Modifier
@@ -168,53 +169,184 @@ fun DotaLogo() { //val myColor: Color = Color(0xFF050B18)
                     .padding(15.dp)
             )
         }
+        Column() {
+            Text(
+                color = Color.White, text = "DoTA 2", fontSize = 20.sp,
+                modifier = Modifier.offset(x = 27.dp, y = 10.dp)
+            )
 
-        Text(color = Color.White, text = "DoTA 2", fontSize = 20.sp,
-            modifier = Modifier.offset(x = 25.dp, y = 0.dp))
+            Row(modifier = Modifier.offset(25.dp, 15.dp)) {
+                FiveStars()
+                Text(color = Color.Gray, text = "  70M", fontSize = 13.sp)
 
-        Image(
-            painter = painterResource(id = R.drawable.stars0), contentDescription = "star1",
-            modifier = Modifier
-                .height(45.dp)
-                .width(90.dp)
-                .offset(x = -55.dp, y = 20.dp)
-                .padding(15.dp),
-            contentScale = ContentScale.FillBounds
-        )
+            }
+
+        }
+
     }
 }
 
 @Composable
-fun ReviewAndRaiting()
-{}
-// Тут будут сейчас эксперименты
+fun oneStar() {
+    Image(
+        painter = painterResource(R.drawable.star),
+        contentDescription = "dotaScreenshot",
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .background(Color.Transparent)
+            .height(15.dp)
+            .width(15.dp)
+
+    )
+}
 
 @Composable
-private fun ListItem(name:String, prof: String){
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp),
-        shape = RoundedCornerShape(15.dp),//закруглённые углы
-        elevation = CardDefaults.cardElevation(5.dp)
-    ){
-        Box(){
-            Row(verticalAlignment = Alignment.CenterVertically){
-                Image(
-                    painter = painterResource(id = R.drawable.face1),
-                    contentDescription = "image",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.padding(5.dp)
-                        .size(64.dp)
-                        .clip(CircleShape)
+fun FiveStars() {
+    Row(
+        modifier = Modifier,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        oneStar()
+        oneStar()
+        oneStar()
+        oneStar()
+        oneStar()
+    }
+}
+
+@Composable
+fun ReviewAndRatings() {
+
+    Column(modifier = Modifier.padding(24.dp)) {
+        Text(
+            color = Color.White,
+            text = "Review & Ratings",
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp,
+        )
+        Row() {
+            Box() {
+                Text(
+                    color = Color.White,
+                    text = "4.9",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 49.sp,
                 )
-                Column(modifier = Modifier.padding(start = 16.dp)){
-                    Text(text = name)
-                    Text(text = prof)
-                    // подгони тут всё куда следует
+            }
+
+            Box() {
+                Box(
+                    modifier = Modifier
+                        .zIndex(2f)
+                        .offset(25.dp, 35.dp)
+                ) {
+                    Text(
+                        color = Color.Gray,
+                        text = "70M" + " Reviews",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                    )
+                }
+
+                Box(
+                    modifier = Modifier
+                        .zIndex(2f)
+                        .offset(23.dp, 18.dp)
+                )
+                {
+                    FiveStars()
                 }
             }
         }
     }
 }
 
+@Composable
+fun Commentaries(name: String, date: String, comment: String, photo: Int) {
+    Card(
+        modifier = Modifier
+            .background(Color.Transparent)
+            .fillMaxWidth()
+            .padding(top = 10.dp)
+    ) {
+        val BackGroundColor: Color = Color(0xFF050B18)
+        Box(
+            modifier = Modifier.background(BackGroundColor)
+        ) {
+            Column(modifier = Modifier.padding(start = 24.dp, end = 24.dp)) {
+                Row {
+                    Image(
+                        painter = painterResource(id = photo),
+                        contentDescription = "null",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(64.dp)
+                            .clip(CircleShape)
+                    )
+                    Column(modifier = Modifier.padding(horizontal = 20.dp)) {
+                        Box() {
+                            Text(
+                                text = name,
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp
+                            )
+                        }
+                        Box(modifier = Modifier.padding(top = 10.dp)) {
+                            Text(text = date, color = Color.Gray)
+                        }
+
+                    }
+                }
+                Box(modifier = Modifier.padding(top = 20.dp)) {
+                    Text(
+                        text = "\"" + comment + "\"",
+                        color = Color.White,
+                        modifier = Modifier.padding(vertical = 3.dp)
+                    )
+
+                }
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 20.dp, vertical = 20.dp)
+                        .alpha(0.25f)
+                ) {
+                    Divider(color = Color.Gray, thickness = 1.dp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun footer(pad: Int) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(pad.dp)
+    ) { }
+}
+
+
+@Composable
+fun gameButton(onClick: () -> Unit) {
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom,
+
+        ) {
+
+        Button(
+            onClick = { onClick() },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 30.dp, horizontal = 25.dp)
+                .height(50.dp)
+
+        ) {
+            Text("Install", color = Color.Black)
+        }
+    }
+}
