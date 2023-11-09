@@ -17,10 +17,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import com.example.myapplication.ui.theme.MyYellow
 
 
 @Composable
@@ -319,34 +320,29 @@ fun Commentaries(name: String, date: String, comment: String, photo: Int) {
 }
 
 @Composable
-fun footer(pad: Int) {
+fun Footer(pad: Int) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .height(pad.dp)
     ) { }
 }
-
-
 @Composable
-fun gameButton(onClick: () -> Unit) {
-
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Bottom,
-
-        ) {
-
-        Button(
-            onClick = { onClick() },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 30.dp, horizontal = 25.dp)
-                .height(50.dp)
-
-        ) {
-            Text("Install", color = Color.Black)
-        }
+fun Button(){
+    TextButton(
+        onClick ={},
+        modifier = Modifier
+            .padding(start =30.dp, end = 30.dp, top = 20.dp )
+            .height(50.dp)
+            .width(380.dp)
+            .clip(shape = RoundedCornerShape(size = 12.dp))
+            .background(color = MyYellow),
+        )
+    {
+        Text(
+            text = "Install",
+            fontSize = 25.sp,
+            color = Color.Black
+        )
     }
 }

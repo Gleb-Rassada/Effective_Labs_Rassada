@@ -85,7 +85,7 @@ fun Screen() {
                         .padding(bottom = 30.dp),
                     contentAlignment = Alignment.BottomCenter
                 ) {
-                    gameButton(onClick = {})
+                    Button()
                 }
             }
 
